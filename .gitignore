@@ -19,6 +19,8 @@ coverage/
 
 # API keys and secrets
 .env
+.env.development
+.env.test
 .env.production
 
 # Dependency directory
