@@ -1,11 +1,11 @@
 import { Endpoint, Endpoints } from '../interfaces';
 import systemHealthRouter from './system-health';
 
-import mainRouter from './v1/main';
+import v1BaseRouter from './v1/base';
 
 const v1Endpoints: Endpoint = {
 	route: '/api/v1',
-	router: mainRouter,
+	router: v1BaseRouter,
 	endpoints: [
 		{
 			route: '/hi',
