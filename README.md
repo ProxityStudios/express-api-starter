@@ -1,3 +1,5 @@
+# DOCUMENTATION ISN'T READY FOR NOW
+
 # Typescript Starter
 
 This source is designed to prevent developers from doing things over and over again. 
