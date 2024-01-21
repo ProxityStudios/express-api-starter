@@ -1,5 +1,5 @@
 import express from 'express';
-import { MessageResponse } from '../interfaces/respone-interfaces';
+import { MessageResponse } from '../interfaces/response-interfaces';
 
 const router = express.Router();
 

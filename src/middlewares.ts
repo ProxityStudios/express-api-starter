@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from 'express';
 
-import { ErrorResponse } from './interfaces/respone-interfaces';
+import { ErrorResponse } from './interfaces/response-interfaces';
 import { isDeveloperMode } from './lib/env';
 
 export function notFoundHandler(
