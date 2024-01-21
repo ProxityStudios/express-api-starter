@@ -5,6 +5,7 @@ import morgan from 'morgan';
 import { Logger } from 'tslog';
 import endpoints from './api';
 import { Endpoints } from './interfaces';
+import { MessageResponse } from './interfaces/response-interfaces';
 import { isDeveloperMode } from './lib/env';
 import { errorHandler, notFoundHandler } from './middlewares';
 
@@ -17,9 +18,12 @@ app.use(helmet());
 app.use(cors());
 app.use(express.json());
 
-app.get('/', (req, res) => {
-	// TODO:
-	res.redirect('https://google.com');
+app.get<object, MessageResponse>('/', (req, res) => {
+	res.status(200);
+	res.json({
+		message: 'hm? what you want',
+		status: 200,
+	});
 });
 
 const registerEndpoints = (es: Endpoints, parentRoute: string = '') =>
