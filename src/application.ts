@@ -22,18 +22,17 @@ app.get('/', (req, res) => {
 	res.redirect('https://google.com');
 });
 
-// FIXME: REGISTER NESTED ROUTES AS WELL | IMPORTANT |
-const useEndpoints = (es: Endpoints) =>
+const registerEndpoints = (es: Endpoints, parentRoute: string = '') =>
 	es.forEach((e) => {
-		appLogger.info(e.route);
-
+		const currentRoute = `${parentRoute}${e.route}`;
+		appLogger.info('Registering route:', currentRoute);
 		if (e.endpoints) {
-			useEndpoints(e.endpoints);
+			registerEndpoints(e.endpoints, currentRoute);
 		}
-		app.use(e.route, e.router);
+		app.use(currentRoute, e.router);
 	});
 
-useEndpoints(endpoints);
+registerEndpoints(endpoints);
 
 app.use(notFoundHandler);
 app.use(errorHandler);

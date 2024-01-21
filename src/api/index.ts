@@ -1,5 +1,4 @@
 import { Endpoint, Endpoints } from '../interfaces';
-import { appLogger } from '../lib/logger';
 import systemHealthRouter from './system-health';
 
 import mainRouter from './v1/main';
@@ -9,8 +8,14 @@ const v1Endpoints: Endpoint = {
 	router: mainRouter,
 	endpoints: [
 		{
-			route: '/system-health',
+			route: '/hi',
 			router: systemHealthRouter,
+			endpoints: [
+				{
+					route: '/hello',
+					router: systemHealthRouter,
+				},
+			],
 		},
 	],
 };
@@ -23,5 +28,4 @@ const endpoints: Endpoints = [
 	},
 ];
 
-appLogger.info(endpoints);
 export default endpoints;
